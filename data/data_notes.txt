@@ -1,0 +1,25 @@
+c02_mm_mlo.txt
+http://www.esrl.noaa.gov/gmd/ccgg/trends/data.html
+
+weekly_in_situ_co2_mlo.csv
+monthly_in_situ_co2_mlo.csv
+http://www.esrl.noaa.gov/gmd/ccgg/obspack/data.php
+
+obspack_co2_1_GLOBALVIEWplus_v2.1_2016-09-02.tar.gz
+-see email for more info and citation
+http://www.esrl.noaa.gov/gmd/ccgg/obspack/tmp/obspack_w6GDoO/obspack_co2_1_GLOBALVIEWplus_v2.1_2016-09-02.tar.gz
+
+edc-co2-2008.txt
+https://www.ncdc.noaa.gov/cdo/f?p=519:1:0::::P1_study_id:6091
+
+cetmaxmly1878on_urbadj4.dat
+http://www.metoffice.gov.uk/hadobs/hadcet/data/download.html
+
+sea-surface-temp_fig-1.csv
+https://www.epa.gov/sites/production/files/2016-08/sea-surface-temp_fig-1.csv
+
+sea-level_fig-1.csv
+https://www.epa.gov/climate-indicators/climate-change-indicators-sea-level
+
+average US temperature
+https://www.ncdc.noaa.gov/cag/time-series/us/110/00/tavg/1/11/1895-2016.csv?base_prd=true&begbaseyear=1901&endbaseyear=2016
