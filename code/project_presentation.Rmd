@@ -1,0 +1,65 @@
+---
+title: "Global Warming Data Collection and Display"
+author: "Zach Wilson"
+date: "December 12, 2016"
+output: beamer_presentation
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = FALSE)
+```
+
+```{r, echo = FALSE, include = FALSE} 
+# load libraries
+library(tidyverse)
+```
+
+```{r, echo = FALSE, include = FALSE} 
+# load all data for presentation
+source("data_load_and_clean.R")
+```
+
+## Introduction
+- Recent election results have brought a group of people into the lime light who the media refers to as climate change deniers
+- This groups prominence in recent news cycles prompted me to take a look at some of the key data sets currently being used to demonstate that global warming is a real and is likely attributable to human actions
+
+## What is the Green House Effect
+- Energy from the sun drives the Earth's climate and heats the Earth's Surface
+- The Earth radiates some of this energy back into space
+- Some atmospheric gases trap some of this radiated energy and retain it
+- These gases are known as green house gasses
+- The greenhouse effect is the rise in tempeature of the Earth as as these green house gasses in the atmosphere trap energy
+
+- There are six main green house gasses - carbon dioxide, methane, nitrous oxide, hydrofluorocarbons, perfluorocarbons, and sulphur hexafluoride
+
+## Why Is This A Bad Thing?
+```{r co2}
+ggplot(co2_old, aes(-1*age, co2_ppm)) + geom_point() + geom_line() +
+           geom_point(data = co2_recent, aes(decimal_date - 1958.208, interpolated)) + geom_line() +
+           ggtitle("Ice Core CO_2 Data") +
+           labs(x = "Year", y = "CO_2 (parts per million)")
+```
+
+## Mauna Loa $CO_2$ Data
+```{r ml}
+ggplot(co2_recent, aes(decimal_date, interpolated)) + geom_point() + geom_line() + 
+           ggtitle("Monthly Mean CO_2 at Mauna Loa") +
+           labs(x = "Year", y = "CO_2 (parts per million)")
+```
+
+## Data For the Project
+Data from multiple sources was gathered, it ranged from clean and ready for use to quite dirty and in multiple different files that had to be downloaded, merged, and cleaned.
+
+- National Oceanic and Atmospheric Admisistration
+- Snow and Ice Data Center
+- Environmental Protection Agency
+- National Climatic Data Center
+- United Kingdom Meterology Office
+
+## Shiny App Demo
+
+## Backup
+
+## Backup
+- Unfortunately the human race drives the production of large amounts of green house gasses
+- Green house gases are actually one of the reasons this planet is habitable
