@@ -15,6 +15,7 @@ library(stringr)
 
 ## download data (1) or processed locally saved files (0)
 download = 0
+download = 1
 
 ## download se ice area data
 # set working directory to data/ice_area directory
@@ -168,7 +169,7 @@ if (download == 1) {
   arctic_surface_temp <- arrange(arctic_surface_temp, year, month, day, hr, min)
   
   # add a decimal date column, use aaverage number of days in a month
-  arctic_surf_temp <- mutate(arctic_surf_temp, decimal_date = year + ((month-1)/12) + (day/365) + 
+  arctic_surface_temp <- mutate(arctic_surface_temp, decimal_date = year + ((month-1)/12) + (day/365) + 
                                (hr/8760) + (min/525600))
   
   # scale the dry bulb temperature data by 10
