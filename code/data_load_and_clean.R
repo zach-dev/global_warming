@@ -12,10 +12,11 @@
 library(tidyverse)
 library(RCurl)
 library(stringr)
+library(tidyr)
 
 ## download data (1) or processed locally saved files (0)
-download = 0
 download = 1
+download = 0
 
 ## download se ice area data
 # set working directory to data/ice_area directory
@@ -260,6 +261,25 @@ if (download == 1) {
   # replace -99.9 and -99.99 with NAs
   hadley_temp$dec[hadley_temp$dec == -99.9] = NA
   hadley_temp$year_avg[hadley_temp$year_avg == -99.99] = NA
+  
+  # perform a gather on all the month columns and the year_avg column
+  hadley_temp <- gather(hadley_temp, "month", "temp", jan:year_avg)
+  
+  # define variables needed to change month abbreviation to integer
+  month_abb <- c("jan", "feb", "mar", "apr", "may", "jun", "jul", "aug", "sep",
+                 "oct", "nov", "dec", "year_avg")
+  months <- 1:13
+  names(months) <- month_abb
+  hadley_temp$month <- match(hadley_temp$month, month_abb)
+  
+  # add a decimal year column
+  hadley_temp <- mutate(hadley_temp, dec_year = year + ((month - 1) / 12)) 
+  
+  # find all yearly average values (month = 13) and fix there new date
+  hadley_temp$dec_year[hadley_temp$month == 13] <- hadley_temp$dec_year[hadley_temp$month == 13] - 1
+  
+  # arrange by decimal year to order by time
+  hadley_temp <- arrange(hadley_temp, dec_year)
   
   # save hadley england temperature data
   write_csv(hadley_temp, "hadley_temp.csv")

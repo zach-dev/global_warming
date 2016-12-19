@@ -5,6 +5,7 @@
 
 ## Zach Wilson - 20161209
 
+library(tidyverse)
 library(shiny)
 
 #source("data_load_and_clean.R")
@@ -122,8 +123,11 @@ server <- function(input, output) {
       # filter to specified year range
       hadley_temp <- filter(hadley_temp, year >= input$year_input[1] & year <= input$year_input[2])
       
+      # filter to look at yearly average data only
+      hadley_temp <- filter(hadley_temp, month == 13)
+      
       # plot hadley england temprature data
-      ggplot(hadley_temp, aes(year, year_avg)) + geom_point() + geom_line() + 
+      ggplot(hadley_temp, aes(dec_year, temp)) + geom_point() + geom_line() + 
              xlim(input$year_input[1], input$year_input[2]) +
              ggtitle("Hadley England Yearly Average Temperature") +
              labs(x = "Year", y = "Temperature (deg C)")
