@@ -6,6 +6,11 @@
 ## load the csv files that have already been created by tweaking the download variable
 ## below
 
+## There is a significant speed and reliability advantage to only using the download
+## option when you truly need to download new data.  A couple of the ftp sites have
+## somewhat frequent outages that will prevent this script from being able to complete.
+## If you are struggling with sites not being up, switch download = 0.
+
 ## Zach Wilson - 20161205
 
 ## load libraries
