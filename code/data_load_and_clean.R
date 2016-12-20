@@ -16,7 +16,7 @@ library(tidyr)
 
 ## download data (1) or processed locally saved files (0)
 download = 1
-download = 0
+# download = 0
 
 ## download se ice area data
 # set working directory to data/ice_area directory
